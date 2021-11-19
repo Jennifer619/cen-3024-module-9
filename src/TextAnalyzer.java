@@ -14,7 +14,16 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Set;
 
+/**
+ * This class implements a text analyzer for the poem 'The Raven' to count the occurrence of each word within the poem. 
+ * @author Jennifer Miller
+ *
+ */
 public class TextAnalyzer {
+	/**
+	 * This method pulls from the text file to generate the output of the list of words and their number of occurrences. 
+	 * @param args
+	 */
 	public static void main(String args[]) {
 		Map<String, Integer> wordMap = buildWordMap("src//TheRaven.txt");
 		List<Entry<String, Integer>> list = sortByValueInDecreasingOrder(wordMap);
@@ -25,6 +34,11 @@ public class TextAnalyzer {
 			}
 		}
 	}
+	/**
+	 * This method creates the pattern for the words in the poem and compiles all of the words to lowercase. 
+	 * @param fileName
+	 * @return compiled map
+	 */
 	private static Map<String, Integer> buildWordMap(String fileName) {
 		// TODO Auto-generated method stub
 		Map<String, Integer> wordMap = new HashMap<>();
@@ -49,6 +63,11 @@ public class TextAnalyzer {
 		}
 		return wordMap;
 	}
+	/**
+	 * This method sorts the list of words by the number of their occurrences in decreasing order. 
+	 * @param wordMap
+	 * @return sorted list
+	 */
 	private static List<Entry<String, Integer>> sortByValueInDecreasingOrder(Map<String, Integer> wordMap) {
 		// TODO Auto-generated method stub
 		Set<Entry<String, Integer>> entries = wordMap.entrySet();
@@ -60,14 +79,5 @@ public class TextAnalyzer {
 			}
 		});
 		return list;
-	}
-	public int countThe(File file) {
-		int count = 0;
-		for(int i = 0; i < file.length(); i++) {
-			if(((CharSequence) file).charAt(i) == 't' && ((CharSequence) file).charAt(i) == 'h' && ((CharSequence) file).charAt(i) == 'e') {
-				count++;
-			}
-		}
-		return count;
 	}
 }
